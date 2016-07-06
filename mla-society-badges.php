@@ -19,6 +19,6 @@ function add_badges( $img ) {
 \add_filter( 'bp_member_avatar', __NAMESPACE__ . '\\add_badges' );
 
 function enqueue_style() {
-	\wp_enqueue_style( 'mla_society_badges_style', \plugins_url() . '/mla-society-badges/css/style.css' );
+	\wp_enqueue_style( 'mla_society_badges', \plugins_url() . '/mla-society-badges/css/style.css' );
 }
 \add_action( 'wp_enqueue_scripts',  __NAMESPACE__ . '\\enqueue_style' );
