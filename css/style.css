@@ -1,0 +1,41 @@
+.item-avatar {
+  position: relative;
+}
+
+.society-badge::before {
+  border-radius: 0.25em;
+  font-size: 0.75em;
+  left: -0.5em;
+  line-height: 0.75em;
+  padding: 0.25em;
+  position: absolute;
+  top: -0.5em;
+}
+
+.society-badge.hc::before {
+  /* this rule intentionally left blank */
+}
+
+.society-badge.mla::before {
+  background-color: #7f132a;
+  color: white;
+  content: "MLA";
+}
+
+.society-badge.caa::before {
+  background-color: #fcb718;
+  color: white;
+  content: "CAA";
+}
+
+.society-badge.ajs::before {
+  background-color: #033136;
+  color: white;
+  content: "AJS";
+}
+
+.society-badge.aseees::before {
+  background-color: #ec2127;
+  color: white;
+  content: "ASEEES";
+}
