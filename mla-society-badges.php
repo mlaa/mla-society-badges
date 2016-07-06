@@ -6,7 +6,7 @@
 
 namespace MLA\Commons\Plugin\SocietyBadges;
 
-function add_wrapper( $img ) {
+function add_badges( $img ) {
 	$badges = '';
 	$member_types = \bp_get_member_type( \bp_get_member_user_id(), false );
 
@@ -16,7 +16,7 @@ function add_wrapper( $img ) {
 
 	return $badges . $img;
 }
-\add_filter( 'bp_member_avatar', __NAMESPACE__ . '\\add_wrapper' );
+\add_filter( 'bp_member_avatar', __NAMESPACE__ . '\\add_badges' );
 
 function enqueue_style() {
 	\wp_enqueue_style( 'mla_society_badges_style', \plugins_url() . '/mla-society-badges/css/style.css' );
