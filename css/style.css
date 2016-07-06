@@ -45,28 +45,38 @@
 
 
 /**
- * member directory
+ * containers
  */
 
-.item-avatar {
+.item-avatar,
+#item-header-avatar {
   position: relative;
-  width: 80px;
-  height: 80px;
 }
 
-.item-avatar .avatar {
+.item-avatar {
+  height: 80px;
+  width: 80px;
+}
+
+#item-header-avatar {
+  height: 300px;
+  width: 300px;
+}
+
+.item-avatar .avatar,
+#item-header-avatar .avatar {
   position: absolute;
 }
 
 
 /**
- * widgets
+ * TODO these probably belong in the theme, they override cbox-mla
  */
 
-.widget .item-avatar {
-  float: left;
+#item-header-avatar .avatar {
+  left: 0;
 }
 
-.widget .item-avatar .society-badge::before {
-  font-size: 65%;
+div#item-header {
+  overflow: visible !important;
 }
