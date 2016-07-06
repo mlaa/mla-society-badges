@@ -6,12 +6,15 @@
 
 namespace MLA\Commons\Plugin\SocietyBadges;
 
-function add_wrapper( $html ) {
-	$member_type = \bp_get_member_type( \bp_get_member_user_id() );
-	if ( ! empty( $member_type ) ) {
-		$html = "<span class=\"society-badge $member_type\">" . $html . "</span>";
+function add_wrapper( $img ) {
+	$badges = '';
+	$member_types = \bp_get_member_type( \bp_get_member_user_id(), false );
+
+	foreach ( $member_types as $type ) {
+		$badges .= "<span class=\"society-badge $type\"></span>";
 	}
-	return $html;
+
+	return $badges . $img;
 }
 \add_filter( 'bp_member_avatar', __NAMESPACE__ . '\\add_wrapper' );
 

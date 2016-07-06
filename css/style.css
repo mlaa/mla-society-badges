@@ -1,15 +1,18 @@
-.item-avatar {
-  position: relative;
-}
+/**
+ * badges
+ */
 
 .society-badge::before {
   border-radius: 0.25em;
+  clear: left;
+  float: left;
   font-size: 0.75em;
-  left: -0.5em;
+  left: -0.25em;
   line-height: 0.75em;
   padding: 0.25em;
-  position: absolute;
-  top: -0.5em;
+  position: relative;
+  top: -0.25em;
+  z-index: 10;
 }
 
 .society-badge.hc::before {
@@ -38,4 +41,32 @@
   background-color: #ec2127;
   color: white;
   content: "ASEEES";
+}
+
+
+/**
+ * member directory
+ */
+
+.item-avatar {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.item-avatar .avatar {
+  position: absolute;
+}
+
+
+/**
+ * widgets
+ */
+
+.widget .item-avatar {
+  float: left;
+}
+
+.widget .item-avatar .society-badge::before {
+  font-size: 65%;
 }
