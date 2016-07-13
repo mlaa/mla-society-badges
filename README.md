@@ -1,2 +1,2 @@
 # mla-society-badges
-Add badges on member avatars to indicate society memberships.
+Add badges on member, group, & blog avatars to indicate society memberships.

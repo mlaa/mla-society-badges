@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: MLA Society Badges
- * Description: Add badges on member avatars to indicate society memberships.
+ * Description: Add badges on member, group, & blog avatars to indicate society memberships.
  */
 
 namespace MLA\Commons\Plugin\SocietyBadges;
@@ -27,8 +27,13 @@ function add_group_badges( $img ) {
 	return add_badges( \bp_groups_get_group_type( $group_id, false ), $img );
 }
 
+function add_blog_badges( $img ) {
+	// expect get_network_option() to return a string, so cast to array for add_badges() loop compatibility
+	return add_badges( (array) \get_network_option( \bp_get_blog_id(), 'society_id' ), $img );
+}
+
 /**
- * helper function used in member, group, & site contexts
+ * helper function used in member, group, & blog contexts
  */
 function add_badges( $types, $img ) {
 	$badges = '';
@@ -58,11 +63,11 @@ function init() {
 		\add_filter( 'bp_get_group_avatar', __NAMESPACE__ . '\\add_group_badges' );
 		\add_action( 'wp_enqueue_scripts',  __NAMESPACE__ . '\\enqueue_style' );
 
-//	} else if ( \bp_is_sites_directory() ) {
-//
-//		\add_filter( 'bp_site_avatar', __NAMESPACE__ . '\\add_site_badges' );
-//		\add_action( 'wp_enqueue_scripts',  __NAMESPACE__ . '\\enqueue_style' );
-//
+	} else if ( \bp_is_blogs_directory() ) {
+
+		\add_filter( 'bp_get_blog_avatar', __NAMESPACE__ . '\\add_blog_badges' );
+		\add_action( 'wp_enqueue_scripts',  __NAMESPACE__ . '\\enqueue_style' );
+
 	}
 
 }
