@@ -63,6 +63,11 @@
   width: 300px;
 }
 
+.profile.change-avatar #item-header-avatar {
+  height: 210px;
+  width: 210px;
+}
+
 .groups.single-item #item-header-avatar {
   height: 210px;
   width: 210px;
