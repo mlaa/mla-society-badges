@@ -58,9 +58,14 @@
   width: 80px;
 }
 
-#item-header-avatar {
+.profile #item-header-avatar {
   height: 300px;
   width: 300px;
+}
+
+.groups.single-item #item-header-avatar {
+  height: 210px;
+  width: 210px;
 }
 
 .item-avatar .avatar,
