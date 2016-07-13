@@ -28,8 +28,11 @@ function add_group_badges( $img ) {
 }
 
 function add_blog_badges( $img ) {
+	$blog_details = get_blog_details( [ 'blog_id' => \bp_get_blog_id() ] );
+	$society_id = \get_network_option( $blog_details->site_id, 'society_id' );
+
 	// expect get_network_option() to return a string, so cast to array for add_badges() loop compatibility
-	return add_badges( (array) \get_network_option( \bp_get_blog_id(), 'society_id' ), $img );
+	return add_badges( (array) $society_id, $img );
 }
 
 /**
