@@ -56,17 +56,17 @@ function init() {
 	if ( \bp_is_members_directory() || \bp_is_user_profile() ) {
 
 		\add_filter( 'bp_member_avatar', __NAMESPACE__ . '\\add_member_badges' );
-		\add_action( 'wp_enqueue_scripts',  __NAMESPACE__ . '\\enqueue_style' );
+		\add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_style' );
 
 	} else if ( \bp_is_groups_directory() || \bp_is_group() ) {
 
 		\add_filter( 'bp_get_group_avatar', __NAMESPACE__ . '\\add_group_badges' );
-		\add_action( 'wp_enqueue_scripts',  __NAMESPACE__ . '\\enqueue_style' );
+		\add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_style' );
 
 	} else if ( \bp_is_blogs_directory() ) {
 
 		\add_filter( 'bp_get_blog_avatar', __NAMESPACE__ . '\\add_blog_badges' );
-		\add_action( 'wp_enqueue_scripts',  __NAMESPACE__ . '\\enqueue_style' );
+		\add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_style' );
 
 	}
 
