@@ -22,7 +22,10 @@ function add_member_badges( $img ) {
 
 function add_group_badges( $img ) {
 	// group_id for directory, current_group_id for single
-	$group_id = \bp_get_group_id() || \bp_get_current_group_id();
+	$group_id = \bp_get_group_id();
+	if ( empty( $group_id ) ) {
+		$group_id = \bp_get_current_group_id();
+	}
 
 	return add_badges( \bp_groups_get_group_type( $group_id, false ), $img );
 }
