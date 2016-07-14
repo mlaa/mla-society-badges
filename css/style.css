@@ -76,6 +76,7 @@
 .item-avatar .avatar,
 #item-header-avatar .avatar {
   position: absolute;
+  left: 0;
 }
 
 
