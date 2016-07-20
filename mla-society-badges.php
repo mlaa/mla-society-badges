@@ -71,7 +71,7 @@ function init() {
 
 	} else if ( bp_is_blogs_directory() ) {
 
-		add_filter( 'bp_get_blog_avatar', __NAMESPACE__ . '\\add_blog_badges' );
+		add_filter( 'bp_get_blog_avatar', __NAMESPACE__ . '\\add_blog_badges', 20 );
 		add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_style' );
 
 	}
