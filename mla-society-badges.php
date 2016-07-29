@@ -46,7 +46,18 @@ function add_badges( $types, $img ) {
 
 	if ( $types ) {
 		foreach ( $types as $type ) {
-			$badges .= "<span class=\"society-badge $type\"></span>";
+			$url = get_blogaddress_by_id( \Humanities_Commons::$main_site->blog_id );
+
+			// TODO surely this can be improved
+			if ( $type !== 'hc' ) {
+				$url = str_replace(
+					\Humanities_Commons::$main_site->domain,
+					$type . '.' . \Humanities_Commons::$main_site->domain,
+					$url
+				);
+			}
+
+			$badges .= "<a href=\"$url\"><span class=\"society-badge $type\"></span></a>";
 		}
 	}
 
