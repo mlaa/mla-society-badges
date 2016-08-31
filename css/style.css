@@ -56,11 +56,6 @@
   width: 80px;
 }
 
-.profile #item-header-avatar {
-  height: 300px;
-  width: 300px;
-}
-
 .profile.change-avatar #item-header-avatar {
   height: 210px;
   width: 210px;
@@ -79,8 +74,14 @@
 
 
 /**
- * TODO these probably belong in the theme, they override cbox-mla
+ * overrides for cbox-theme / cbox-mla
  */
+
+/*
+.profile #item-header-avatar {
+  height: 300px;
+  width: 300px;
+}
 
 #item-header-avatar .avatar {
   left: 0;
@@ -88,4 +89,15 @@
 
 div#item-header {
   overflow: visible !important;
+}
+*/
+
+
+/**
+ * overrides for boss theme
+ */
+
+#primary #members-list .item-avatar a.society-badge-wrap,
+#primary #groups-list .item-avatar a.society-badge-wrap {
+  height: auto;
 }

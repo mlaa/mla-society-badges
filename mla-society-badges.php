@@ -57,7 +57,7 @@ function add_badges( $types, $img ) {
 				);
 			}
 
-			$badges .= "<a href=\"$url\"><span class=\"society-badge $type\"></span></a>";
+			$badges .= "<a class=\"society-badge-wrap\" href=\"$url\"><span class=\"society-badge $type\"></span></a>";
 		}
 	}
 
