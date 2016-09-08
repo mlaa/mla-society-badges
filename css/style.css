@@ -17,8 +17,10 @@
 }
 
 .society-badge.hc::before {
+  /*
   background-color: black;
   content: "HC";
+  */
 }
 
 .society-badge.mla::before {
@@ -42,10 +44,12 @@
 }
 
 
+
 /**
- * containers
+ * overrides for cbox-theme / cbox-mla
  */
 
+/*
 .item-avatar,
 #item-header-avatar {
   position: relative;
@@ -71,11 +75,7 @@
   position: absolute;
   left: 0;
 }
-
-
-/**
- * overrides for cbox-theme / cbox-mla
- */
+*/
 
 /*
 .profile #item-header-avatar {
@@ -97,7 +97,65 @@ div#item-header {
  * overrides for boss theme
  */
 
-#primary #members-list .item-avatar a.society-badge-wrap,
-#primary #groups-list .item-avatar a.society-badge-wrap {
+
+/* members directory */
+
+#primary #members-list .item-avatar {
+  position: relative;
+  vertical-align: top;
+}
+
+#primary #members-list .item-avatar > img {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+#primary #members-list .item-avatar a.society-badge-wrap {
   height: auto;
 }
+
+
+/* member profile */
+
+.profile #item-header-avatar {
+  position: relative;
+}
+
+.profile #item-header-avatar > img {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+
+/* groups directory */
+
+#primary #groups-list li .item-avatar {
+  position: relative;
+  vertical-align: top;
+}
+
+#primary #groups-list li .item-avatar > img {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 70px;
+  height: 70px;
+}
+
+#primary #groups-list .item-avatar a.society-badge-wrap {
+  height: 70px;
+  width: 70px;
+}
+
+
+/* single group */
+
+/* pending bbpress template review */
+.single-item.groups .society-badge-wrap {
+  display: none;
+}
+
+
+/* sites directory */

@@ -6,6 +6,8 @@
 
 namespace MLA\Commons\Plugin\SocietyBadges;
 
+const MIN_IMG_WIDTH = 70; // img tags with a width less than this will not get badges
+
 function add_member_badges( $img ) {
 	/**
 	 * member profile requires bp_get_displayed_user*()
@@ -42,6 +44,12 @@ function add_blog_badges( $img ) {
  * helper function used in member, group, & blog contexts
  */
 function add_badges( $types, $img ) {
+	preg_match( '/width="(\d+)"/', $img, $img_width );
+
+	if ( isset( $img_width[1] ) && $img_width[1] < MIN_IMG_WIDTH ) {
+		return $img;
+	}
+
 	$badges = '';
 
 	if ( $types ) {
@@ -56,6 +64,11 @@ function add_badges( $types, $img ) {
 		}
 	}
 
+	// to prevent css conflicts, only enqueue style if we're actually adding badges
+	if ( ! empty( $badges ) ) {
+		add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_style' );
+	}
+
 	return $badges . $img;
 }
 
@@ -66,20 +79,11 @@ function enqueue_style() {
 function init() {
 
 	if ( bp_is_members_directory() || bp_is_user_profile() ) {
-
 		add_filter( 'bp_member_avatar', __NAMESPACE__ . '\\add_member_badges' );
-		add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_style' );
-
 	} else if ( bp_is_groups_directory() || bp_is_group() ) {
-
 		add_filter( 'bp_get_group_avatar', __NAMESPACE__ . '\\add_group_badges' );
-		add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_style' );
-
 	} else if ( bp_is_blogs_directory() ) {
-
-		add_filter( 'bp_get_blog_avatar', __NAMESPACE__ . '\\add_blog_badges', 20 );
-		add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_style' );
-
+		//add_filter( 'bp_get_blog_avatar', __NAMESPACE__ . '\\add_blog_badges', 20 );
 	}
 
 }
