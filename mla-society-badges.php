@@ -54,7 +54,7 @@ function add_badges( $types, $img ) {
 
 	if ( $types ) {
 		foreach ( $types as $type ) {
-			$url = HC_SITE_URL;
+			$url = ( defined( 'HC_SITE_URL' ) ) ? HC_SITE_URL : get_blogaddress_by_id( \Humanities_Commons::$main_site->blog_id );
 
 			if ( $type !== 'hc' ) {
 				$url = 'https://' . $type . '.' . str_replace( 'https://', '', $url );
